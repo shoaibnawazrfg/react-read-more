@@ -1,0 +1,27 @@
+{
+  "name": "@crossfield/react-read-more",
+  "version": "0.0.1",
+  "description": "Read more container that expands html elements to their full height",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com:crossfield/react-read-more"
+  },
+  "keywords": [
+    "react",
+    "read",
+    "more",
+    "expand"
+  ],
+  "author": "Jeanie & Zach",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
