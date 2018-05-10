@@ -3,7 +3,7 @@
 ![demo](demo.gif)
 
 ```
-npm install @crossfield/react-react-more
+npm install @crossfield/react-read-more
 ```
 
 This read more component helps truncate large chunks of text/html and animates to the full height of the inner content.
@@ -12,26 +12,26 @@ This read more component helps truncate large chunks of text/html and animates t
 # Example
 
 ```js
-<Readmore
+<ReadMore
   initialHeight={350}
   readMore={props => (
-  <ReadMoreButton onClick={props.onClick}>
-    {props.open ? 'Read Less' : 'Read More'}
-    <Icon
-    name="caret"
-    style={{
-      transform: `rotate( ${props.open ? '-90deg' : '90deg'})`,
-      transition: 'transform 0.25s',
-    }}
-    />
-  </ReadMoreButton>
+    <ReadMoreButton onClick={props.onClick}>
+      {props.open ? 'Read Less' : 'Read More'}
+      <Icon
+      name="caret"
+      style={{
+        transform: `rotate( ${props.open ? '-90deg' : '90deg'})`,
+        transition: 'transform 0.25s',
+      }}
+      />
+    </ReadMoreButton>
   )}
 >
   <Label>The Design Vision</Label>
   <Text>
       SOME LONG TEXT
   </Text>
-</Readmore>
+</ReadMore>
 ```
 
 # Props
