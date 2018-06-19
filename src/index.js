@@ -13,25 +13,36 @@ export default class ReadMore extends React.Component {
     if (maxHeight !== initialHeight)
       return this.setState({ maxHeight: initialHeight });
 
-    //calculate height of all the children
-    let children = [...this.container.children];
-    let height = 0;
-    children.forEach(child => (height += child.offsetHeight));
+    let height = this.calculateHeight();
 
     //set the full height
     this.setState({ maxHeight: height });
   }
 
+  calculateHeight() {
+    //calculate height of all the children
+    let children = [...this.container.children];
+    let height = 0;
+    children.forEach(child => (height += child.offsetHeight));
+
+    return height;
+  }
+
+  componentDidMount() {
+    if (this.calculateHeight() <= this.props.initialHeight)
+      this.setState({ hideReadMore: true });
+  }
+
   render() {
     let { children, readMore } = this.props;
-    let { maxHeight, initialHeight } = this.state;
+    let { maxHeight, initialHeight, hideReadMore } = this.state;
     let open = maxHeight !== initialHeight;
 
     return (
       <React.Fragment>
         <div
           style={{
-            maxHeight,
+            maxHeight: open ? maxHeight : maxHeight - 160,
             transition: 'max-height .5s ease',
             position: 'relative',
             overflow: 'hidden',
@@ -40,26 +51,30 @@ export default class ReadMore extends React.Component {
           ref={el => (this.container = el)}
         >
           {children}
-          <div
-            style={{
-              transition: 'opacity 0.25s',
-              opacity: open ? 0 : 1,
-              backgroundImage:
-                'linear-gradient(to bottom, rgba(255, 255, 255, 0.44), #ffffff )',
-              content: '',
-              height: '160px',
-              width: '100%',
-              position: 'absolute',
-              bottom: '0',
-              left: '0',
-            }}
-          />
+          {hideReadMore ? null : (
+            <div
+              style={{
+                transition: 'opacity 0.25s',
+                opacity: open ? 0 : 1,
+                backgroundImage:
+                  'linear-gradient(to bottom, rgba(255, 255, 255, 0.44), #ffffff )',
+                content: '',
+                height: '160px',
+                width: '100%',
+                position: 'absolute',
+                bottom: '0',
+                left: '0',
+              }}
+            />
+          )}
         </div>
 
-        {readMore({
-          open,
-          onClick: () => this.toggle(),
-        })}
+        {hideReadMore
+          ? null
+          : readMore({
+              open,
+              onClick: () => this.toggle(),
+            })}
       </React.Fragment>
     );
   }
