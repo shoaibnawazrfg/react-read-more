@@ -73,9 +73,9 @@ export default class ReadMore extends React.Component {
         {hideReadMore
           ? null
           : readMore({
-            open,
-            onClick: () => this.toggle(),
-          })}
+              open,
+              onClick: () => this.toggle(),
+            })}
       </React.Fragment>
     );
   }
