@@ -1,6 +1,6 @@
 {
   "name": "@crossfield/react-read-more",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read more container that expands html elements to their full height",
   "main": "dist/index.js",
   "scripts": {
