@@ -46,7 +46,6 @@ export default class ReadMore extends React.Component {
             transition: 'max-height .5s ease',
             position: 'relative',
             overflow: 'hidden',
-            marginTop: 40,
           }}
           ref={el => (this.container = el)}
         >
