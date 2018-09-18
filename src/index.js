@@ -34,7 +34,7 @@ export default class ReadMore extends React.Component {
   }
 
   render() {
-    let { children, readMore } = this.props;
+    let { children, readMore, blurStyle } = this.props;
     let { maxHeight, initialHeight, hideReadMore } = this.state;
     let open = maxHeight !== initialHeight;
 
@@ -64,6 +64,7 @@ export default class ReadMore extends React.Component {
                 position: 'absolute',
                 bottom: '0',
                 left: '0',
+                ...blurStyle,
               }}
             />
           )}
