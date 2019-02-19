@@ -40,6 +40,10 @@ This read more component helps truncate large chunks of text/html and animates t
 
 The closed size of the container
 
+**overhangSize** (Optional, default 160)
+
+Adjust height of white gradient mask element
+
 **readMore**
 
 render function that gives you a props object containing `open` and `onClick` to toggle open / close
